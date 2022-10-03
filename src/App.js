@@ -9,7 +9,7 @@ function App() {
         <TopNav/>
         <Routes>
           <Route path='/addcategoria' element={<AgregarCategoria/>}/>
-        </Routes>
+          </Routes>
     </div>
   );
 }
