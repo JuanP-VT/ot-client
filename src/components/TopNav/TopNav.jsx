@@ -5,7 +5,7 @@ const TopNav = () => {
     const [activeItem, setActiveItem] = useState('editorials')
     const handleItemClick = (e,{name})=> setActiveItem(name)
   return (
-     <Menu>
+     <Menu inverted>
         <Menu.Item
           name='Agregar Categoria'
          as={Link} 
@@ -13,13 +13,15 @@ const TopNav = () => {
              active={activeItem === 'Agregar Categoria'}
           onClick={handleItemClick}
         >
-          Editorials
+          Agregar Categoría
         </Menu.Item>
 
         <Menu.Item
           name='reviews'
              active={activeItem === 'reviews'}
           onClick={handleItemClick}
+           as={Link} 
+         to ='/reviews'
         >
           Reviews
         </Menu.Item>
