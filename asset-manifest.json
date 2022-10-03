@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/ot-client/static/css/main.27da7071.css",
-    "main.js": "/ot-client/static/js/main.2d917d6d.js",
-    "static/js/787.9a668ed0.chunk.js": "/ot-client/static/js/787.9a668ed0.chunk.js",
+    "main.css": "/ot-client/static/css/main.2193bfb2.css",
+    "main.js": "/ot-client/static/js/main.6e5383a6.js",
     "static/media/brand-icons.svg": "/ot-client/static/media/brand-icons.6729d29753e000c17489.svg",
     "static/media/icons.svg": "/ot-client/static/media/icons.62d9dae4e0040e81c980.svg",
     "static/media/outline-icons.svg": "/ot-client/static/media/outline-icons.9c4845b4b41ef40a22fa.svg",
@@ -19,14 +18,12 @@
     "static/media/flags.png": "/ot-client/static/media/flags.99f63ae7a743f21ab308.png",
     "static/media/outline-icons.woff": "/ot-client/static/media/outline-icons.ddae9b1ba9b0b42f5880.woff",
     "static/media/outline-icons.woff2": "/ot-client/static/media/outline-icons.687a4990ea22bb1a49d4.woff2",
-    "static/media/logo.svg": "/ot-client/static/media/logo.b2e5a01e505f739f1484b881277d5186.svg",
     "index.html": "/ot-client/index.html",
-    "main.27da7071.css.map": "/ot-client/static/css/main.27da7071.css.map",
-    "main.2d917d6d.js.map": "/ot-client/static/js/main.2d917d6d.js.map",
-    "787.9a668ed0.chunk.js.map": "/ot-client/static/js/787.9a668ed0.chunk.js.map"
+    "main.2193bfb2.css.map": "/ot-client/static/css/main.2193bfb2.css.map",
+    "main.6e5383a6.js.map": "/ot-client/static/js/main.6e5383a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.27da7071.css",
-    "static/js/main.2d917d6d.js"
+    "static/css/main.2193bfb2.css",
+    "static/js/main.6e5383a6.js"
   ]
 }
