@@ -17,13 +17,13 @@ const TopNav = () => {
         </Menu.Item>
 
         <Menu.Item
-          name='reviews'
+          name='Borrar Categoria'
              active={activeItem === 'reviews'}
           onClick={handleItemClick}
            as={Link} 
-         to ='/reviews'
+         to ='/borrarcategoria'
         >
-          Reviews
+          Borrar Categoría
         </Menu.Item>
 
         <Menu.Item
