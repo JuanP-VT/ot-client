@@ -8,6 +8,7 @@ const AgregarCategoria = () => {
   return (
     <Form error required success >
     <Form.Input label='Categoria' placeholder='Categoría' id='categoriaName'/>
+    <Form.Input label='imgUrl' placeholder='Image Url' id='imgUrl'/>
     {ApiRes !== '' && ApiRes !== 'succes'?    <Message
       error
       header='Error'
