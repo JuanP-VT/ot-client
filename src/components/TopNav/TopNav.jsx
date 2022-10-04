@@ -5,7 +5,7 @@ const TopNav = () => {
     const [activeItem, setActiveItem] = useState('editorials')
     const handleItemClick = (e,{name})=> setActiveItem(name)
   return (
-     <Menu inverted>
+     <Menu  stackable inverted >
               <Menu.Item
           name='Ver Productos'
             active={activeItem === 'Ver Productos'}
