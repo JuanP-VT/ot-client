@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Button, Form, Message } from 'semantic-ui-react'
+import { Button, Form, Header, Message } from 'semantic-ui-react'
 import {useNavigate} from 'react-router-dom'
 import AgregarCategoriaRequest from './AgregarCategoriaRequest'
 const AgregarCategoria = () => {
   const [ApiRes, setApiRes] = useState('');
   const navigate = useNavigate();
   return (
+    <>
+    <Header as='h1'>Agreegar Categoría</Header>
     <Form error required success >
     <Form.Input label='Categoria' placeholder='Categoría' id='categoriaName'/>
     <Form.Input label='imgUrl' placeholder='Image Url' id='imgUrl'/>
@@ -22,6 +24,7 @@ const AgregarCategoria = () => {
     />:''}
       <Button type='submit' onClick={(e)=>AgregarCategoriaRequest(e,navigate,setApiRes)}>Agregar</Button>
   </Form>
+  </>
   )
 }
 

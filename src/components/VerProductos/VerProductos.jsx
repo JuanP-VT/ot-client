@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { fetchAllProducts} from '../../store/slices/ProductsSlice'
 import {fetchAllCategorias} from '../../store/slices/CategoriasSlice/'
-import { Button, Card, CardGroup, Container, Image, Select } from 'semantic-ui-react'
+import { Button, Card, CardGroup, Container, Header, Image, Select } from 'semantic-ui-react'
 import handleQuery from './handleQuery'
 const VerProductos = () => {
   //Este hook se usará para filtrar los productos por categoria, por default todos los productos se muestran
@@ -37,7 +37,9 @@ const VerProductos = () => {
     dispatch(fetchAllCategorias())
   },[dispatch])
   return (
-    <><Container fluid className='searchContainer'>
+    <>
+    <Header as='h1'>Catalogo de Productos</Header>
+    <Container fluid className='searchContainer'>
     <Select placeholder='Categoria' options={selectList} id ='productSelect'/>
     <Button onClick={()=>handleQuery(setQuery)} >Buscar</Button>
     </Container>

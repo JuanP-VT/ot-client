@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Header, Image } from 'semantic-ui-react'
 import {fetchAllCategorias} from '../../store/slices/CategoriasSlice/'
 import BorrarCategoriaRequest from './BorrarCategoriaRequest'
 const BorrarCategorias = () => {
@@ -14,6 +14,7 @@ const BorrarCategorias = () => {
   },[dispatch,Update])
   return (
    <>
+   <Header as='h1'>Borrar Categoría</Header>
    {list.length >0?<Card.Group>
     {list.map((elem,index)=>(<Card key={index}>
       <Card.Content>

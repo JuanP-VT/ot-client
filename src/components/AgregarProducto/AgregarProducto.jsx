@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import { Button, Form, Message, Select,Label } from 'semantic-ui-react'
+import { Button, Form, Message, Select,Label, Header } from 'semantic-ui-react'
 import {fetchAllCategorias} from '../../store/slices/CategoriasSlice'
 import {useDispatch, useSelector} from 'react-redux'
 import AgregarProductoRequest from './AgregarProductoRequest'
@@ -22,7 +22,8 @@ const AgregarProducto = () => {
   useEffect(()=>{
     dispatch(fetchAllCategorias())
   },[dispatch])
-  return (
+  return (<>
+  <Header as='h1'>Agregar Productos</Header>
      <Form error success >
     <Form.Input label='Nombre del producto' placeholder='Nombre' id='productName'/>
     <Form.Field>
@@ -44,6 +45,7 @@ const AgregarProducto = () => {
     />:''}
     <Button onClick={(e)=>AgregarProductoRequest(e,setUIMessage,navigate)}>Agregar</Button>
   </Form>
+  </>
   )
 }
 
