@@ -37,7 +37,7 @@ const VerProductos = () => {
     dispatch(fetchAllCategorias())
   },[dispatch])
   return (
-    <><Container fluid={true}>
+    <><Container fluid className='searchContainer'>
     <Select placeholder='Categoria' options={selectList} id ='productSelect'/>
     <Button onClick={()=>handleQuery(setQuery)} >Buscar</Button>
     </Container>
