@@ -6,6 +6,15 @@ const TopNav = () => {
     const handleItemClick = (e,{name})=> setActiveItem(name)
   return (
      <Menu inverted>
+              <Menu.Item
+          name='Ver Productos'
+            active={activeItem === 'Ver Productos'}
+          onClick={handleItemClick}
+                     as={Link} 
+         to ='/'
+        >
+          Ver Productos
+        </Menu.Item>
         <Menu.Item
           name='Agregar Categoria'
          as={Link} 

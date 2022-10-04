@@ -8,12 +8,14 @@ import AgregarProducto from './components/AgregarProducto/AgregarProducto'
 //redux
 import {Provider} from 'react-redux'
 import store from './store'
+import VerProductos from './components/VerProductos/VerProductos';
 function App() {
   return (
     <div className="App">
         <TopNav/>
         <Provider store={store}>
         <Routes>
+          <Route path='/' element={<VerProductos/>}/>
           <Route path='/addcategoria' element={<AgregarCategoria/>}/>
           <Route path='/borrarcategoria' element={<BorrarCategorias/>}/>
           <Route path='/addproducto' element={<AgregarProducto/>}/>
