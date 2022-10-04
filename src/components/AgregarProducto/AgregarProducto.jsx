@@ -15,6 +15,9 @@ const AgregarProducto = () => {
   const selectList = list.map((elem,index)=>{
     return {key:index, value:elem.name, text:elem.name}
   })
+  // Al select list le agregamos una opcion más llamada sin categoria
+   const sinCategoria = {key:999, value:'sin categoria', text:'sin categoria'}
+   selectList.push(sinCategoria)
     const dispatch = useDispatch();
   useEffect(()=>{
     dispatch(fetchAllCategorias())
