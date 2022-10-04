@@ -29,7 +29,7 @@ const message = result.res
     }
     // Si no hay errores redireccionamos.
     setMessage('succes')
-    setTimeout(() => { navigate('/reviews') }, 2000);
+    setTimeout(() => { navigate('/') }, 2000);
 
 }
 

@@ -1,4 +1,4 @@
-export default async function AgregarProductoRequest(e,setMessage){
+export default async function AgregarProductoRequest(e,setMessage,navigate){
     //Extraemos los valores de los inputs
     const name = document.querySelector('#productName').value
     let categoria = document.querySelector('#productCategoria').firstChild.textContent
@@ -25,7 +25,24 @@ export default async function AgregarProductoRequest(e,setMessage){
         setMessage('El precio debe ser mayor a 0')
         return;
     }
-    //Creamos nueva entry
-    const newEntry = {name:name, categoria:categoria,unidadesDisponibles:stock,precio:precio}
-    console.log(newEntry)
+    // Server Validation
+        //Creamos nueva entry
+        const newEntry = {name:name, categoria:categoria,unidadesDisponibles:stock,precio:precio}
+     const response = await fetch('https://ot-serverapi.herokuapp.com/products', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8'
+  },
+  body: JSON.stringify(newEntry)
+});
+//Obtenemos la respuesta de la API
+const {res} = await response.json()
+if (res === 'El producto ya está en la base de datos'){
+    setMessage('El producto ya está en la base de datos')
+    return;
+}
+// Despues de  toda la validacion retornamos mensage de exito y redireccionamos
+setMessage('succes')
+setTimeout(() => { navigate('/') }, 2000);
+
 }
