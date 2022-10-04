@@ -14,7 +14,7 @@ const BorrarCategorias = () => {
   },[dispatch,Update])
   return (
    <>
-   <Card.Group>
+   {list.length >0?<Card.Group>
     {list.map((elem,index)=>(<Card key={index}>
       <Card.Content>
         <Image
@@ -32,7 +32,7 @@ const BorrarCategorias = () => {
         </div>
       </Card.Content>
     </Card>))}
-    </Card.Group>
+    </Card.Group>:<div>No hay categorías registradas</div>}
    </>
   )
 }
