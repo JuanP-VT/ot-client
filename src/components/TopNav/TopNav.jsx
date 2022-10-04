@@ -44,6 +44,15 @@ const TopNav = () => {
         >
           Agregar Producto
         </Menu.Item>
+                <Menu.Item
+          name='Editar Articulo'
+            active={activeItem === 'Editar Articulo'}
+          onClick={handleItemClick}
+                     as={Link} 
+         to ='/editproducto'
+        >
+          Editar Producto
+        </Menu.Item>
       </Menu>
   )
 }

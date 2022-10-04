@@ -10,6 +10,7 @@ import VerProductos from './components/VerProductos/VerProductos';
 import {Provider} from 'react-redux'
 import store from './store'
 import { Container } from 'semantic-ui-react';
+import EditarProductos from './components/EditarProductos/EditarPoductos';
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
           <Route path='/addcategoria' element={<AgregarCategoria/>}/>
           <Route path='/borrarcategoria' element={<BorrarCategorias/>}/>
           <Route path='/addproducto' element={<AgregarProducto/>}/>
+          <Route path='/editproducto' element={<EditarProductos/>}></Route>
           </Routes>
           </Container>
         </Provider>
