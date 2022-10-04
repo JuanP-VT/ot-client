@@ -18,7 +18,7 @@ const TopNav = () => {
 
         <Menu.Item
           name='Borrar Categoria'
-             active={activeItem === 'reviews'}
+             active={activeItem === 'Borrar Categoria'}
           onClick={handleItemClick}
            as={Link} 
          to ='/borrarcategoria'
@@ -27,11 +27,13 @@ const TopNav = () => {
         </Menu.Item>
 
         <Menu.Item
-          name='upcomingEvents'
-            active={activeItem === 'upcomingEvents'}
+          name='Agregar Articulo'
+            active={activeItem === 'Agregar Articulo'}
           onClick={handleItemClick}
+                     as={Link} 
+         to ='/addproducto'
         >
-          Upcoming Events
+          Agregar Producto
         </Menu.Item>
       </Menu>
   )
