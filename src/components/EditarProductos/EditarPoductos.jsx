@@ -4,6 +4,7 @@ import { fetchAllProducts} from '../../store/slices/ProductsSlice'
 import {fetchAllCategorias} from '../../store/slices/CategoriasSlice/'
 import { Button, Card, CardGroup, Container, Header, Image, Input, Select,Label, Form, FormField, Grid } from 'semantic-ui-react'
 import handleQuery from './handleQuery'
+import EditarProductoRequest from './EditarProductoRequest'
 const EditarProducto = () => {
   //Este hook se usará para filtrar los productos por categoria, por default todos los productos se muestran
   const [Query,setQuery] = useState('todos')
@@ -36,8 +37,8 @@ const EditarProducto = () => {
     dispatch(fetchAllProducts())
     dispatch(fetchAllCategorias())
   },[dispatch])
-  return (<Grid>{Query === 'todos'?newList.map((elem,index)=>(<Form>
-  <Card key={''}>
+  return (<Grid>{Query === 'todos'?newList.map((elem,index)=>(<Form key={index}>
+  <Card >
       <Card.Content>
         <Image
           floated='right'
@@ -45,14 +46,14 @@ const EditarProducto = () => {
           src={elem.icon?elem.icon.imgUrl:''}
         />
         <Form.Field>
-        <Input type='text' value={elem.name}  size='small' label='Nombre' />
-        <Input type='number' value={elem.unidadesDisponibles}  size='small' label ='Stock'/>
-        <Input type='number' value={elem.precio}  size='small' label ='Precio'/>
+        <Input type='text' value={elem.name}  size='small' label='Nombre' id='editName' />
+        <Input type='number' value={elem.unidadesDisponibles}  size='small' label ='Stock' id='editUnidadesDisponibles'/>
+        <Input type='number' value={elem.precio}  size='small' label ='Precio' id='editPrecio'/>
         </Form.Field>
         <Label>Categoría</Label>
         <Select placeholder={elem.categoria} options={selectList} id ='editProductCategoria' defaultValue={elem.categoria}  />
         <div className='ui two buttons'>
-          <Button basic color='yellow'>
+          <Button basic color='yellow' data-id={elem._id} onClick={(e)=>EditarProductoRequest(e)}>
             Editar
           </Button>
           <Button basic color='red'>
