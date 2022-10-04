@@ -4,7 +4,7 @@ import './App.css';
 import TopNav from './components/TopNav/TopNav';
 import AgregarCategoria from './components/AgregarCategoria/AgregarCategoria'
 import BorrarCategorias from './components/BorrarCategorias/BorrarCategorias';
-import AgregarProducto from './AgregarProducto/AgregarProducto'
+import AgregarProducto from './components/AgregarProducto/AgregarProducto'
 //redux
 import {Provider} from 'react-redux'
 import store from './store'

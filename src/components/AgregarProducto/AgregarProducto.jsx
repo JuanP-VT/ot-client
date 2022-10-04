@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import { Button, Form, Message, Select,Label } from 'semantic-ui-react'
-import {fetchAllCategorias} from '../store/slices/CategoriasSlice'
+import {fetchAllCategorias} from '../../store/slices/CategoriasSlice'
 import {useDispatch, useSelector} from 'react-redux'
 import AgregarProductoRequest from './AgregarProductoRequest'
 
