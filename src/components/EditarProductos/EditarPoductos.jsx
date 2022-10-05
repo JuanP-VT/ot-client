@@ -43,6 +43,7 @@ const EditarProducto = () => {
   return (<Grid>{Query === 'todos'?newList.map((elem,index)=>(<Form key={index}>
   <Card >
       <Card.Content>
+        <div id='editMsg'></div>
         <Image
           floated='right'
           size='mini'

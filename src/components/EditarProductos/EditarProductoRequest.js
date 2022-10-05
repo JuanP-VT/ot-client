@@ -24,5 +24,9 @@ export default async function EditarProductoRequest(e,setUpdate){
 //Obtenemos la respuesta de la API
 const res = await response.json()
 console.log(res)
+//Mostrar mensage de feedback
+const editDiv = parent.querySelector('#editMsg')
+editDiv.textContent = 'Operacion Exitosa!'
+setTimeout(() => { editDiv.textContent='' }, 2000);
 setUpdate((state)=> state +1)
 }
