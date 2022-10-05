@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 const TopNav = () => {
   // Este Hook guarda la referencia al menu activo para resaltarlo
-  const [activeItem, setActiveItem] = useState("editorials");
+  const [activeItem, setActiveItem] = useState("Ver Productos");
   const handleItemClick = (e, { name }) => setActiveItem(name);
   return (
     <Menu stackable inverted>
@@ -15,6 +15,24 @@ const TopNav = () => {
         to="/"
       >
         Ver Productos
+      </Menu.Item>
+      <Menu.Item
+        name="Agregar Articulo"
+        active={activeItem === "Agregar Articulo"}
+        onClick={handleItemClick}
+        as={Link}
+        to="/addproducto"
+      >
+        Agregar Producto
+      </Menu.Item>
+      <Menu.Item
+        name="Editar Articulo"
+        active={activeItem === "Editar Articulo"}
+        onClick={handleItemClick}
+        as={Link}
+        to="/editproducto"
+      >
+        Editar Producto
       </Menu.Item>
       <Menu.Item
         name="Agregar Categoria"
@@ -34,25 +52,6 @@ const TopNav = () => {
         to="/borrarcategoria"
       >
         Borrar Categoría
-      </Menu.Item>
-
-      <Menu.Item
-        name="Agregar Articulo"
-        active={activeItem === "Agregar Articulo"}
-        onClick={handleItemClick}
-        as={Link}
-        to="/addproducto"
-      >
-        Agregar Producto
-      </Menu.Item>
-      <Menu.Item
-        name="Editar Articulo"
-        active={activeItem === "Editar Articulo"}
-        onClick={handleItemClick}
-        as={Link}
-        to="/editproducto"
-      >
-        Editar Producto
       </Menu.Item>
     </Menu>
   );
