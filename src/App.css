@@ -8,3 +8,16 @@
   padding: 20px;
   font-weight: 800;
 }
+.item span {
+  text-transform: capitalize;
+}
+.content .header,
+.meta {
+  text-transform: capitalize;
+}
+#editProductCategoria .text {
+  text-transform: capitalize;
+}
+#editName {
+  text-transform: capitalize;
+}
