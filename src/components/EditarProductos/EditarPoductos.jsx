@@ -47,11 +47,28 @@ const EditarProducto = () => {
   });
   // Agregamos manualmente la propiedad 'sin categoria' al select list
   const sincategoria = {
-    key: 999,
+    key: 998,
     value: "sin categoria",
     text: "sin categoria",
   };
   selectList.unshift(sincategoria);
+  //Ordenar por orden alfabetico
+  selectList.sort(function (a, b) {
+    const nameA = a.text.toUpperCase();
+    const nameB = b.text.toUpperCase();
+    //
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    // si son iguales
+    return 0;
+  });
+  // Agregamos manualmente la propiedad 'todos' al select list
+  const todos = { key: 999, value: "todos", text: "todos" };
+  selectList.unshift(todos);
   //Creamos una lista filtrando los elementos con la categoria seleccionada
   // dependiendo del State actual del Query
   const filteredList = allProductsList.filter(
