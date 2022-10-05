@@ -9,13 +9,14 @@ import BorrarProductoRequest from './BorrarProductoRequest'
 const EditarProducto = () => {
   //Este hook se usará para filtrar los productos por categoria, por default todos los productos se muestran
   const [Query,setQuery] = useState('todos')
-  // Este hook se usara para renderizar el componente cunado se editen o borren elementos
+  // Este hook se usara para re-renderizar el componente cunado se editen o borren elementos
   const [Update,setUpdate] = useState(0)
   const dispatch = useDispatch();
-   //Global App state para el listado de los productos
-  const {list:Productlist} = useSelector(state => state.products)
+   //Llamamos al Global App state para el listado de los productos y categorías
+          const {list:Productlist} = useSelector(state => state.products)
   const {list:Categoriaslist} = useSelector(state => state.categorias)
-  //Creamos una nueva lista agregando la url de la imagen de la categoria a la lista de productos
+  //Buscamos la categoría de cada producto en la lista de categorías para conseguir la url de la imagen
+  // y creamos una nueva Array con elementos de ambas
   const newList = Productlist.map((elem)=>{
     const target = Categoriaslist.filter(cat => cat.name === elem.categoria)[0]
     return {_id:elem._id,
@@ -34,13 +35,12 @@ const EditarProducto = () => {
   const sincategoria = {key:999, value:'sin categoria', text:'sin categoria'}
   selectList.unshift(sincategoria)
   //Creamos una lista filtrando los elementos con la categoria seleccionada
+  // dependiendo del State actual del Query
   const filteredList = newList.filter((elem)=> elem.categoria === Query)
-  console.log(filteredList)
   //Llamamos al Global State al renderizar el componente
   useEffect(()=>{
     dispatch(fetchAllProducts())
     dispatch(fetchAllCategorias())
-    console.log('rerender')
   },[dispatch,Update])
   return (
   <Grid>
