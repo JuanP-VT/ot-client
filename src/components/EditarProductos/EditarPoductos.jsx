@@ -35,14 +35,23 @@ const EditarProducto = () => {
   selectList.unshift(sincategoria)
   //Creamos una lista filtrando los elementos con la categoria seleccionada
   const filteredList = newList.filter((elem)=> elem.categoria === Query)
+  console.log(filteredList)
   //Llamamos al Global State al renderizar el componente
   useEffect(()=>{
     dispatch(fetchAllProducts())
     dispatch(fetchAllCategorias())
+    console.log('rerender')
   },[dispatch,Update])
-  return (<Grid>{Query === 'todos'?newList.map((elem,index)=>(<Form key={index}>
+  return (
+  <Grid>
+        <Header as='h1'>Catalogo de Productos</Header>
+    <Container fluid className='searchContainer'>
+    <Select placeholder='Categoria' options={selectList} id ='editProductCategoria'/>
+    <Button onClick={()=>handleQuery(setQuery,setUpdate)} >Buscar</Button>
+    </Container>
+    {Query === 'todos'?newList.map((elem,index)=>(<Form key={index}>
   <Card >
-      <Card.Content>
+          <Card.Content>
         <div id='editMsg'></div>
         <Image
           floated='right'
@@ -65,7 +74,35 @@ const EditarProducto = () => {
           </Button>
         </div>
       </Card.Content>
-         </Card></Form>)):''}</Grid>)
+         </Card></Form>)):
+         filteredList.map((elem,index)=>(<Form key={index}>
+  <Card >
+          <Card.Content>
+        <div id='editMsg'></div>
+        <Image
+          floated='right'
+          size='mini'
+          src={elem.icon?elem.icon.imgUrl:''}
+          key={index +'sl'}
+        />
+        <Form.Field >
+        <Input type='text' defaultValue={elem.name}  size='small' label='Nombre' id='editName' key={`${elem.name}${index}s`}/>
+        <Input type='number' defaultValue={elem.unidadesDisponibles}  size='small' label ='Stock' id='editUnidadesDisponibles' key={`${elem.unidadesDisponibles}${index}s`}/>
+        <Input type='number' defaultValue={elem.precio}  size='small' label ='Precio' id='editPrecio' key={`${elem.precio}${index}s`}/>
+        </Form.Field>
+        <Label>Categoría</Label>
+        <Select placeholder={elem.categoria} options={selectList} id ='editProductCategoria' defaultValue={elem.categoria} key={`${elem.categoria}${index}s`} />
+        <div className='ui two buttons'>  
+          <Button basic color='yellow' data-id={elem._id} onClick={(e)=>EditarProductoRequest(e,setUpdate)}>
+            Editar
+          </Button>
+          <Button basic color='red' data-id={elem._id} onClick={(e)=>BorrarProductoRequest(e,setUpdate)}>
+            Borrar
+          </Button>
+        </div>
+      </Card.Content>
+         </Card></Form>))}
+         </Grid>)
 }
 
 export default EditarProducto
