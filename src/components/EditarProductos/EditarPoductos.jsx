@@ -5,6 +5,7 @@ import {fetchAllCategorias} from '../../store/slices/CategoriasSlice/'
 import { Button, Card, CardGroup, Container, Header, Image, Input, Select,Label, Form, FormField, Grid } from 'semantic-ui-react'
 import handleQuery from './handleQuery'
 import EditarProductoRequest from './EditarProductoRequest'
+import BorrarProductoRequest from './BorrarProductoRequest'
 const EditarProducto = () => {
   //Este hook se usará para filtrar los productos por categoria, por default todos los productos se muestran
   const [Query,setQuery] = useState('todos')
@@ -58,7 +59,7 @@ const EditarProducto = () => {
           <Button basic color='yellow' data-id={elem._id} onClick={(e)=>EditarProductoRequest(e,setUpdate)}>
             Editar
           </Button>
-          <Button basic color='red'>
+          <Button basic color='red' data-id={elem._id} onClick={(e)=>BorrarProductoRequest(e,setUpdate)}>
             Borrar
           </Button>
         </div>
