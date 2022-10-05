@@ -1,6 +1,10 @@
-.mainContainer{
-    padding: 20px;
+.mainContainer {
+  padding: 20px;
 }
-.searchContainer{
-    margin-bottom: 10px;
+.searchContainer {
+  margin-bottom: 10px;
+}
+.highlight {
+  padding: 20px;
+  font-weight: 800;
 }
