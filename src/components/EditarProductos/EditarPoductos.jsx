@@ -8,6 +8,8 @@ import EditarProductoRequest from './EditarProductoRequest'
 const EditarProducto = () => {
   //Este hook se usará para filtrar los productos por categoria, por default todos los productos se muestran
   const [Query,setQuery] = useState('todos')
+  // Este hook se usara para renderizar el componente cunado se editen o borren elementos
+  const [Update,setUpdate] = useState(0)
   const dispatch = useDispatch();
    //Global App state para el listado de los productos
   const {list:Productlist} = useSelector(state => state.products)
@@ -27,16 +29,16 @@ const EditarProducto = () => {
   const selectList = Categoriaslist.map((elem,index)=>{
     return {key:index, value:elem.name, text:elem.name}
   })
-  // Agregamos manualmente la propiedad 'todos' al select list
-  const todos = {key:999, value:'todos', text:'todos'}
-  selectList.unshift(todos)
+  // Agregamos manualmente la propiedad 'sin categoria' al select list
+  const sincategoria = {key:999, value:'sin categoria', text:'sin categoria'}
+  selectList.unshift(sincategoria)
   //Creamos una lista filtrando los elementos con la categoria seleccionada
   const filteredList = newList.filter((elem)=> elem.categoria === Query)
   //Llamamos al Global State al renderizar el componente
   useEffect(()=>{
     dispatch(fetchAllProducts())
     dispatch(fetchAllCategorias())
-  },[dispatch])
+  },[dispatch,Update])
   return (<Grid>{Query === 'todos'?newList.map((elem,index)=>(<Form key={index}>
   <Card >
       <Card.Content>
@@ -46,14 +48,14 @@ const EditarProducto = () => {
           src={elem.icon?elem.icon.imgUrl:''}
         />
         <Form.Field>
-        <Input type='text' value={elem.name}  size='small' label='Nombre' id='editName' />
-        <Input type='number' value={elem.unidadesDisponibles}  size='small' label ='Stock' id='editUnidadesDisponibles'/>
-        <Input type='number' value={elem.precio}  size='small' label ='Precio' id='editPrecio'/>
+        <Input type='text' defaultValue={elem.name}  size='small' label='Nombre' id='editName' />
+        <Input type='number' defaultValue={elem.unidadesDisponibles}  size='small' label ='Stock' id='editUnidadesDisponibles'/>
+        <Input type='number' defaultValue={elem.precio}  size='small' label ='Precio' id='editPrecio'/>
         </Form.Field>
         <Label>Categoría</Label>
         <Select placeholder={elem.categoria} options={selectList} id ='editProductCategoria' defaultValue={elem.categoria}  />
         <div className='ui two buttons'>
-          <Button basic color='yellow' data-id={elem._id} onClick={(e)=>EditarProductoRequest(e)}>
+          <Button basic color='yellow' data-id={elem._id} onClick={(e)=>EditarProductoRequest(e,setUpdate)}>
             Editar
           </Button>
           <Button basic color='red'>

@@ -1,4 +1,4 @@
-export default async function EditarProductoRequest(e){
+export default async function EditarProductoRequest(e,setUpdate){
     const target = e.target
     const id = target.getAttribute('data-id')
     const parent = target.parentNode.parentNode
@@ -14,5 +14,15 @@ export default async function EditarProductoRequest(e){
         precio:parseInt(precio)
     }
     console.log(newEntry)
-    
+  const response = await fetch('https://ot-serverapi.herokuapp.com/products', {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8'
+  },
+  body: JSON.stringify(newEntry)
+});
+//Obtenemos la respuesta de la API
+const res = await response.json()
+console.log(res)
+setUpdate((state)=> state +1)
 }
